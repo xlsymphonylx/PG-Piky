@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.sidebar-layout {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.45);
+    padding-top: 20px;
+}
+.content {
+    height: 94.8vh;
+    background: url("../svg/FondoHome.svg");
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.sidebar-layout a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    color: #4b4b4b;
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.sidebar-layout a:hover {
+    color: black;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+
+/* Navbar Styles */
+.navbar-layout {
+    display: flex;
+    background-color: #fff;
+    justify-content: flex-start !important;
+    position: fixed;
+    padding: 1rem !important;
+    width: 100%;
+    top: 0;
+    left: 250px;
+}
+
+.navbar-layout a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.navbar-layout a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    margin-left: 250px; /* Adjusted for sidebar width */
+    margin-top: 3rem;
+}
+
+.sidebar-layout__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-layout__logo-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.04rem;
+}
+
+.order-search {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    width: 19.875rem;
+    padding: 0.5rem;
+    padding-right: 30px;
+    position: relative;
+}
+.order-search::placeholder {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.08rem;
+    font-family: "Poppins", sans-serif;
+    color: black;
+}
+
+.order-search__logo {
+    position: absolute;
+    left: 19rem;
+    top: 1.5rem;
+    width: auto;
+    height: 1.5rem;
+}
+
+.sidebar-layout__logo {
+    margin-right: 0.75rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.search-order__info {
+    background: rgba(0, 84, 163, 0.15);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+.search-order__info-item {
+    font-family: "Poppins", sans-serif;
+    color: black;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.08rem;
+    margin-right: 1rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+.search-order__info-item:not(.search-order__info-item:last-child) {
+    border-right: 1px solid black;
+}
