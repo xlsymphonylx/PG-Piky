@@ -3,8 +3,6 @@
 @section('content')
     <link rel="stylesheet" href="{{ url('css/form.css') }}">
     <div class="form-custom__container">
-        <h3 class="form-custom__title">Mostrando Orden de Trabajo</h3>
-
         <div class="form-custom__section">
             <div class="form-custom__group">
                 <label class="form-custom__label" for="branch">Sucursal</label>
@@ -43,7 +41,7 @@
                     required>
             </div>
         </div>
-        <div style="margin-left: 1rem; margin-bottom: 2rem">
+        <div style="margin-left: 1rem">
             <a href="{{ route('work_orders.edit', $workOrder->id) }}"
                 class="form-custom__btn form-custom__btn-success">Editar</a>
             <a href="{{ route('work_orders.index') }}" class="form-custom__btn form-custom__btn-danger">Cancelar</a>

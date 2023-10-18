@@ -116,7 +116,7 @@
 
                     <div class="text-center">
                         <button type="submit" class="auth__form-btn">
-                            {{ __('Iniciar Sesión') }}
+                            {{ __('Registrarse') }}
                         </button>
 
                     </div>

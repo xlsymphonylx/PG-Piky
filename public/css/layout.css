@@ -11,7 +11,7 @@
     padding-top: 20px;
 }
 .content {
-    height: 94.8vh;
+    min-height: 94.8vh;
     background: url("../svg/FondoHome.svg");
     background-repeat: no-repeat;
     background-size: cover

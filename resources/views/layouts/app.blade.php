@@ -37,7 +37,7 @@
                 Inicio</a>
             <a href="#" class="sidebar-layout__link"> <img src="{{url('svg/DefaultDraft.svg')}}" class="sidebar-layout__logo">Nuevo
                 Borrador</a>
-            <a href="#" class="sidebar-layout__link"> <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+            <a href="/users" class="sidebar-layout__link"> <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                     class="sidebar-layout__logo" xmlns="http://www.w3.org/2000/svg">
                     <g id="ph:user">
                         <path id="Vector"
@@ -49,7 +49,7 @@
                     class="sidebar-layout__logo">Ordenes de Trabajo</a>
             <a href="#" class="sidebar-layout__link"> <img src="{{url('svg/Defaultvessel.svg')}}"
                     class="sidebar-layout__logo">Buques</a>
-            <a href="#" class="sidebar-layout__link"> <img src="{{url('svg/DefaultCondition.svg')}}"
+            <a href="/conditions" class="sidebar-layout__link"> <img src="{{url('svg/DefaultCondition.svg')}}"
                     class="sidebar-layout__logo">Condiciones</a>
             <a href="#" class="sidebar-layout__link"> <img src="{{url('svg/DefaultTime.svg')}}"
                     class="sidebar-layout__logo">Registro de Tiempos</a>

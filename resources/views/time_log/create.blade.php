@@ -4,8 +4,6 @@
     <link rel="stylesheet" href="{{ url('css/form.css') }}">
 
     <div class="form-custom__container">
-        <h3 class="form-custom__title">Creando Orden de Trabajo</h3>
-
         <form method="POST" action="{{ route('work_orders.store') }}">
             @csrf
 

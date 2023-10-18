@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkOrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +26,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::middleware(['auth'])->group(function () {
     Route::resource('work_orders', WorkOrderController::class);
+    Route::resource('conditions', ConditionController::class);
+    Route::resource('users', UserController::class);
 });
