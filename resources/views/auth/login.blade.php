@@ -77,11 +77,6 @@
                         <input id="password" type="password"
                             class="auth__form-input @error('password') is-invalid @enderror" name="password" required
                             autocomplete="current-password">
-                        <div style="text-align: left">
-                            <a type="submit" class="auth__form-register" href="/register">
-                                {{ __('Registrarse') }}
-                            </a>
-                        </div>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
