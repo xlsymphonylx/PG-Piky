@@ -11,6 +11,6 @@
             fill="#0054A3" />
     </svg>
     <h3 class="home__title">CARMIN CARGO</h3>
-    <p class="home__text">Ingrese un número de documento o redacte un nuevo borrador</p>
+    <p class="home__text">Enter a work order number or create a new work order</p>
 </div>
 @endsection

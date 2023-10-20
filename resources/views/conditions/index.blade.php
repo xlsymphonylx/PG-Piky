@@ -4,21 +4,26 @@
     <link rel="stylesheet" href="{{ url('css/table.css') }}">
 
     <div class="table-custom__container">
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="table-custom__options">
-            <a href="{{ url('/conditions/create') }}">Nuevo</a>
+            <a href="{{ url('/conditions/create') }}">New</a>
         </div>
         <table class="table-custom">
             <thead>
                 <tr>
                     <th>Attending Surveyor</th>
-                    <th>Master Name</th>
+                    <th>Master's Name</th>
                     <th>Chief Name</th>
                     <th>Witness Dought</th>
-                    <th>Witness Tank</th>
+                    <th>Tank Witness</th>
                     <th>Ship Location</th>
                     <th>Weather Temp</th>
                     <th>Sea Conditions</th>
-                    <th>Heading Ship</th>
+                    <th>Ship Heading</th>
                     <th>Direction Wind</th>
                     <th>Stream Speed</th>
                     <th>Tide</th>
@@ -46,13 +51,13 @@
                             <div class="options-dropdown">
                                 <div class="vertical-dots">&#8230;</div>
                                 <div class="options-dropdown-content">
-                                    <a href="{{ route('conditions.show', $condition->id) }}">Ver</a>
-                                    <a href="{{ route('conditions.edit', $condition->id) }}">Editar</a>
+                                    <a href="{{ route('conditions.show', $condition->id) }}">Show</a>
+                                    <a href="{{ route('conditions.edit', $condition->id) }}">Edit</a>
                                     <form action="{{ route('conditions.destroy', $condition->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="submit" value="Eliminar">
+                                        <input type="submit" value="Delete">
                                     </form>
                                 </div>
                             </div>

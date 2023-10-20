@@ -3,48 +3,25 @@
 @section('content')
     <link rel="stylesheet" href="{{ url('css/form.css') }}">
     <div class="form-custom__container">
+        <h3 class="form-custom__title">Viewing Time Log</h3>
+
         <div class="form-custom__section">
             <div class="form-custom__group">
-                <label class="form-custom__label" for="branch">Sucursal</label>
-                <input type="text" class="form-custom__input" id="branch" name="branch" value="{{ $workOrder->branch }}"
-                    placeholder="Ingrese la sucursal" required>
+                <label class="form-custom__label" for="entry_time">Entry Time</label>
+                <input type="datetime-local" class="form-custom__input" id="entry_time" name="entry_time"
+                    value="{{ $timeLog->entry_time }}" placeholder="Enter entry time" required>
             </div>
 
             <div class="form-custom__group">
-                <label class="form-custom__label" for="terminal">Terminal</label>
-                <input type="text" class="form-custom__input" id="terminal" name="terminal"
-                    value="{{ $workOrder->terminal }}" placeholder="Ingrese la terminal" required>
+                <label class="form-custom__label" for="description">Description</label>
+                <input type="text" class="form-custom__input" id="description" value="{{ $timeLog->description }}"
+                    name="description" placeholder="Enter description" required>
             </div>
         </div>
-        <div class="form-custom__section">
-            <div class="form-custom__group">
-                <label class="form-custom__label" for="product">Producto</label>
-                <input type="text" class="form-custom__input" id="product" name="product"
-                    value="{{ $workOrder->product }}" placeholder="Ingrese el producto" required>
-            </div>
-            <div class="form-custom__group">
-                <label class="form-custom__label" for="vessel">Buque</label>
-                <input type="text" class="form-custom__input" id="vessel" name="vessel"
-                    value="{{ $workOrder->vessel }}" placeholder="Ingrese el buque" required>
-            </div>
-        </div>
-        <div class="form-custom__section">
-            <div class="form-custom__group">
-                <label class="form-custom__label" for="file_status">Estado de Archivo</label>
-                <input type="text" class="form-custom__input" id="file_status" name="file_status"
-                    value="{{ $workOrder->file_status }}" placeholder="Ingrese el estado de archivo" required>
-            </div>
-
-            <div class="form-custom__group">
-                <label class="form-custom__label" for="eta">ETA</label>
-                <input type="date" class="form-custom__input" id="eta" name="eta" value="{{ $workOrder->eta }}"
-                    required>
-            </div>
-        </div>
-        <div style="margin-left: 1rem">
-            <a href="{{ route('work_orders.edit', $workOrder->id) }}"
-                class="form-custom__btn form-custom__btn-success">Editar</a>
-            <a href="{{ route('work_orders.index') }}" class="form-custom__btn form-custom__btn-danger">Cancelar</a>
+        <div style="margin-left: 1rem; margin-bottom: 2rem">
+            <a href="{{ route('time_log.edit', $timeLog->id) }}"
+                class="form-custom__btn form-custom__btn-success">Edit</a>
+            <a href="{{ route('time_log.index') }}" class="form-custom__btn form-custom__btn-danger">Cancel</a>
         </div>
     </div>
 @endsection

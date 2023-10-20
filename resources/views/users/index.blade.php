@@ -4,16 +4,21 @@
     <link rel="stylesheet" href="{{ url('css/table.css') }}">
 
     <div class="table-custom__container">
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="table-custom__options">
-            <a href="{{ url('/users/create') }}">Nuevo</a>
+            <a href="{{ url('/users/create') }}">New</a>
         </div>
         <table class="table-custom">
             <thead>
                 <tr>
-                    <th>Nombre</th>
+                    <th>Name</th>
                     <th>Email</th>
-                    <th>Verificado</th>
-                    <th>Acciones</th>
+                    <th>Verified</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,18 +26,18 @@
                     <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->email_verified_at ? 'Sí' : 'No' }}</td>
+                        <td>{{ $user->email_verified_at ? 'Yes' : 'No' }}</td>
                         <td class="options">
                             <div class="options-dropdown">
                                 <div class="vertical-dots">&#8230;</div>
                                 <div class="options-dropdown-content">
-                                    <a href="{{ route('users.show', $user->id) }}">Ver</a>
-                                    <a href="{{ route('users.edit', $user->id) }}">Editar</a>
+                                    <a href="{{ route('users.show', $user->id) }}">View</a>
+                                    <a href="{{ route('users.edit', $user->id) }}">Edit</a>
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="submit" value="Eliminar">
+                                        <input type="submit" value="Delete">
                                     </form>
                                 </div>
                             </div>

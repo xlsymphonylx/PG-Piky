@@ -45,7 +45,7 @@ class ConditionController extends Controller
         Condition::create($request->all());
 
         return redirect()->route('conditions.index')
-            ->with('success', '¡La condición se ha creado exitosamente!');
+            ->with('success', 'The condition has been created sucessfully!');
     }
 
     public function edit($id)
@@ -76,7 +76,7 @@ class ConditionController extends Controller
         $condition->update($request->all());
 
         return redirect()->route('conditions.index')
-            ->with('success', '¡La condición se ha actualizado exitosamente!');
+            ->with('success', 'The condition has been updated sucessfully!');
     }
 
     public function destroy($id)
@@ -85,6 +85,6 @@ class ConditionController extends Controller
         $condition->delete();
 
         return redirect()->route('conditions.index')
-            ->with('success', '¡La condición se ha eliminado exitosamente!');
+            ->with('success', 'The condition has been deleted sucessfully!');
     }
 }

@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\ShipController;
+use App\Http\Controllers\TimeLogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkOrderController;
 use Illuminate\Support\Facades\Auth;
@@ -28,4 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('work_orders', WorkOrderController::class);
     Route::resource('conditions', ConditionController::class);
     Route::resource('users', UserController::class);
+    Route::resource('roles', RolController::class);
+    Route::resource('time_log', TimeLogController::class);
+    Route::resource('ships', ShipController::class);
 });

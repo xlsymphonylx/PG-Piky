@@ -4,53 +4,48 @@
     <link rel="stylesheet" href="{{ url('css/form.css') }}">
 
     <div class="form-custom__container">
-        <form method="POST" action="{{ route('work_orders.store') }}">
+        <h3 class="form-custom__title">New Time Log</h3>
+        @if ($errors->any())
+            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                <strong>Please fill all fields!</strong>
+                @foreach ($errors->all() as $error)
+                    <span class="badge badge-danger">{{ $error }}</span>
+                @endforeach
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        <form method="POST" action="{{ route('time_log.store') }}">
             @csrf
 
-            <div class="form-custom__section">
-                <div class="form-custom__group">
-                    <label class="form-custom__label" for="branch">Sucursal</label>
-                    <input type="text" class="form-custom__input" id="branch" name="branch"
-                        placeholder="Ingrese la sucursal" required>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-
-                <div class="form-custom__group">
-                    <label class="form-custom__label" for="terminal">Terminal</label>
-                    <input type="text" class="form-custom__input" id="terminal" name="terminal"
-                        placeholder="Ingrese la terminal" required>
-                </div>
-
-
-            </div>
-            <div class="form-custom__section">
-                <div class="form-custom__group">
-                    <label class="form-custom__label" for="product">Producto</label>
-                    <input type="text" class="form-custom__input" id="product" name="product"
-                        placeholder="Ingrese el producto" required>
-                </div>
-                <div class="form-custom__group">
-                    <label class="form-custom__label" for="vessel">Buque</label>
-                    <input type="text" class="form-custom__input" id="vessel" name="vessel"
-                        placeholder="Ingrese el buque" required>
-                </div>
-            </div>
-
+            @endif
 
             <div class="form-custom__section">
                 <div class="form-custom__group">
-                    <label class="form-custom__label" for="file_status">Estado de Archivo</label>
-                    <input type="text" class="form-custom__input" id="file_status" name="file_status"
-                        placeholder="Ingrese el estado de archivo" required>
+                    <label class="form-custom__label" for="entry_time">Entry Time</label>
+                    <input type="datetime-local" class="form-custom__input" id="entry_time" name="entry_time"
+                        placeholder="Enter entry time" required>
                 </div>
 
                 <div class="form-custom__group">
-                    <label class="form-custom__label" for="eta">ETA</label>
-                    <input type="date" class="form-custom__input" id="eta" name="eta" required>
+                    <label class="form-custom__label" for="description">Description</label>
+                    <input type="text" class="form-custom__input" id="description" name="description"
+                        placeholder="Enter description" required>
                 </div>
             </div>
+
             <div style="margin-left: 1rem">
-                <button type="submit" class="form-custom__btn form-custom__btn-success">Guardar</button>
-                <a href="{{ route('work_orders.index') }}" class="form-custom__btn form-custom__btn-danger">Cancelar</a>
+                <button type="submit" class="form-custom__btn form-custom__btn-success">Save</button>
+                <a href="{{ route('time_log.index') }}" class="form-custom__btn form-custom__btn-danger">Cancel</a>
             </div>
         </form>
     </div>

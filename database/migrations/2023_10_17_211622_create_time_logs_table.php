@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('time_logs', function (Blueprint $table) {
             $table->id();
+            $table->datetime('entry_time');
+            $table->string('description');
             $table->timestamps();
         });
     }

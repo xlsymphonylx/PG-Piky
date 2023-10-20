@@ -9,29 +9,29 @@
                 {{ session('success') }}
             </div>
         @endif
-        <div class="table-custom__options">
-            <a href="{{ url('/time_log/create') }}">New</a>
-        </div>
+        @can('crear-rol')
+            <div class="table-custom__options">
+                <a href="{{ url('/roles/create') }}">New</a>
+            </div>
+        @endcan
+
         <table class="table-custom">
-            <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Entry Time</th>
-                    <th></th>
-                </tr>
+            <thead style="background-color: #003366">
+                <th>ID</th>
+                <th>Role</th>
+                <th></th> <!-- Corrected a typo here -->
             </thead>
             <tbody>
-                @foreach ($timeLogs as $timeLog)
+                @foreach ($roles as $role)
                     <tr>
-                        <td>{{ $timeLog->description }}</td>
-                        <td>{{ $timeLog->entry_time }}</td>
+                        <td>{{ $role->id }}</td>
+                        <td>{{ $role->name }}</td>
                         <td class="options">
                             <div class="options-dropdown">
                                 <div class="vertical-dots">&#8230;</div>
                                 <div class="options-dropdown-content">
-                                    <a href="{{ route('time_log.show', $timeLog->id) }}">View</a>
-                                    <a href="{{ route('time_log.edit', $timeLog->id) }}">Edit</a>
-                                    <form action="{{ route('time_log.destroy', $timeLog->id) }}" method="POST"
+                                    <a href="{{ route('roles.edit', $role->id) }}">Edit</a>
+                                    <form action="{{ route('roles.destroy', $role->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
                                         @method('DELETE')

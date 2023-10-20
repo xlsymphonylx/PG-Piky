@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('product');
             $table->string('vessel');
             $table->string('file_status');
-            $table->date('eta');
+            $table->datetime('eta');
             $table->timestamps();
         });
     }

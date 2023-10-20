@@ -38,7 +38,7 @@ class WorkOrderController extends Controller
         WorkOrder::create($request->all());
 
         return redirect()->route('work_orders.index')
-            ->with('success', '¡La orden de trabajo se ha creado exitosamente!');
+            ->with('success', 'The work order has been created sucessfully!');
     }
 
     public function edit($id)
@@ -62,7 +62,7 @@ class WorkOrderController extends Controller
         $workOrder->update($request->all());
 
         return redirect()->route('work_orders.index')
-            ->with('success', '¡La orden de trabajo se ha actualizado exitosamente!');
+            ->with('success', 'The work order has been updated sucessfully!');
     }
 
     public function destroy($id)
@@ -71,6 +71,6 @@ class WorkOrderController extends Controller
         $workOrder->delete();
 
         return redirect()->route('work_orders.index')
-            ->with('success', '¡La orden de trabajo se ha eliminado exitosamente!');
+            ->with('success', 'The work order has been deleted sucessfully!');
     }
 }
