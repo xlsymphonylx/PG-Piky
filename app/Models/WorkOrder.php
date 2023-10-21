@@ -12,6 +12,7 @@ class WorkOrder extends Model
     protected $fillable = [
         'branch',
         'terminal',
+        'file_number',
         'product',
         'vessel',
         'file_status',

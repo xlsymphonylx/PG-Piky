@@ -59,6 +59,13 @@
                     class="sidebar-layout__logo">Time Logs</a>
             <a href="#" class="sidebar-layout__link"> <img src="{{ url('svg/DefaultReports.svg') }}"
                     class="sidebar-layout__logo">Work Report</a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="sidebar-layout__link-logout">
+                    <img src="{{ url('svg/logout.svg') }}" class="sidebar-layout__logo"
+                        style="width: 1.25rem; height: auto; ">Logout
+                </button>
+            </form>
         </div>
 
         <div class="navbar-layout">

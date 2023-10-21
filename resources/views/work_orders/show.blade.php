@@ -4,12 +4,18 @@
     <link rel="stylesheet" href="{{ url('css/form.css') }}">
     <div class="form-custom__container">
         <h3 class="form-custom__title">Viewing Work Order</h3>
-
+        <div class="form-custom__section">
+            <div class="form-custom__group">
+                <label class="form-custom__label" for="file_number">File Number</label>
+                <input type="text" class="form-custom__input" id="file_number" name="file_number"
+                    value="{{ $workOrder->file_number }}" placeholder="Enter File Number" required>
+            </div>
+        </div>
         <div class="form-custom__section">
             <div class="form-custom__group">
                 <label class="form-custom__label" for="branch">Branch</label>
-                <input type="text" class="form-custom__input" id="branch" name="branch" value="{{ $workOrder->branch }}"
-                    placeholder="Enter the branch" required>
+                <input type="text" class="form-custom__input" id="branch" name="branch"
+                    value="{{ $workOrder->branch }}" placeholder="Enter the branch" required>
             </div>
 
             <div class="form-custom__group">
@@ -39,8 +45,8 @@
 
             <div class="form-custom__group">
                 <label class="form-custom__label" for="eta">ETA</label>
-                <input type="date" class="form-custom__input" id="eta" name="eta" value="{{ $workOrder->eta }}"
-                    required>
+                <input type="date" class="form-custom__input" id="eta" name="eta"
+                    value="{{ \Carbon\Carbon::parse($workOrder->eta)->format('Y-m-d') }}" required>
             </div>
         </div>
         <div style="margin-left: 1rem; margin-bottom: 2rem">

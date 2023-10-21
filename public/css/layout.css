@@ -14,9 +14,10 @@
     min-height: 94.8vh;
     background: url("../svg/FondoHome.svg");
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
 }
-.sidebar-layout a {
+.sidebar-layout a,
+.sidebar-layout__link-logout {
     padding: 15px 25px;
     text-decoration: none;
     font-size: 0.75rem;
@@ -26,12 +27,26 @@
     font-family: "Poppins", sans-serif;
 }
 
-.sidebar-layout a:hover {
+.sidebar-layout a:hover,
+.sidebar-layout__link-logout {
     color: black;
-    background-color: #f8f8f8;
+    background-color: #f8f8f8 !important;
     font-weight: 600;
 }
-
+.sidebar-layout__link-logout {
+    border: none;
+    padding: 0;
+    background: none;
+    color: inherit;
+    outline: inherit;
+    display: flex;
+    width: 100%;
+    padding-left: 30px;
+    margin-top: 1rem !important;
+    margin: auto;
+    text-decoration: none; /* Remove underline */
+    color: red !important;
+}
 /* Navbar Styles */
 .navbar-layout {
     display: flex;

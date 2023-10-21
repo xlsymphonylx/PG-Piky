@@ -16,6 +16,7 @@
         <table class="table-custom">
             <thead>
                 <tr>
+                    <th>File Number</th>
                     <th>Branch</th>
                     <th>Terminal</th>
                     <th>Product</th>
@@ -28,12 +29,13 @@
             <tbody>
                 @foreach ($workOrders as $workOrder)
                     <tr>
+                        <td>{{ $workOrder->file_number }}</td>
                         <td>{{ $workOrder->branch }}</td>
                         <td>{{ $workOrder->terminal }}</td>
                         <td>{{ $workOrder->product }}</td>
                         <td>{{ $workOrder->vessel }}</td>
                         <td>{{ $workOrder->file_status }}</td>
-                        <td>{{ $workOrder->eta }}</td>
+                        <td>{{ \Carbon\Carbon::parse($workOrder->eta)->format('Y-m-d') }}</td>
                         <td class="options">
                             <div class="options-dropdown">
                                 <div class="vertical-dots">&#8230;</div>

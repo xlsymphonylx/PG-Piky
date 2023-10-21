@@ -21,6 +21,13 @@
             @method('PUT')
             <div class="form-custom__section">
                 <div class="form-custom__group">
+                    <label class="form-custom__label" for="file_number">File Number</label>
+                    <input type="text" class="form-custom__input" id="file_number" name="file_number"
+                        value="{{ $workOrder->file_number }}" placeholder="Enter File Number" required>
+                </div>
+            </div>
+            <div class="form-custom__section">
+                <div class="form-custom__group">
                     <label class="form-custom__label" for="branch">Branch</label>
                     <input type="text" class="form-custom__input" id="branch" name="branch"
                         value="{{ $workOrder->branch }}" placeholder="Enter the branch" required>
@@ -50,11 +57,10 @@
                     <input type="text" class="form-custom__input" id="file_status" name="file_status"
                         value="{{ $workOrder->file_status }}" placeholder="Enter the file status" required>
                 </div>
-
                 <div class="form-custom__group">
                     <label class="form-custom__label" for="eta">ETA</label>
                     <input type="date" class="form-custom__input" id="eta" name="eta"
-                        value="{{ $workOrder->eta }}" required>
+                        value="{{ \Carbon\Carbon::parse($workOrder->eta)->format('Y-m-d') }}" required>
                 </div>
             </div>
             <div style="margin-left: 1rem">

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('work_orders', function (Blueprint $table) {
             $table->id();
+            $table->string('file_number');
             $table->string('branch');
             $table->string('terminal');
             $table->string('product');

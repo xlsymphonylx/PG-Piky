@@ -28,6 +28,7 @@ class WorkOrderController extends Controller
     {
         $request->validate([
             'branch' => 'required',
+            'file_number' => 'required',
             'terminal' => 'required',
             'product' => 'required',
             'vessel' => 'required',
@@ -51,6 +52,7 @@ class WorkOrderController extends Controller
     {
         $request->validate([
             'branch' => 'required',
+            'file_number' => 'required',
             'terminal' => 'required',
             'product' => 'required',
             'vessel' => 'required',
