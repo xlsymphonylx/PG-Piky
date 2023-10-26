@@ -5,6 +5,14 @@
 
     <div class="form-custom__container">
         <h3 class="form-custom__title">Editing Condition</h3>
+        @if ($errors->any())
+            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                <strong>Please check the fields!</strong>
+                @foreach ($errors->all() as $error)
+                    <span class="badge badge-danger text-danger">{{ $error }}</span>
+                @endforeach
+            </div>
+        @endif
         <form method="POST" action="{{ route('conditions.update', $condition->id) }}">
             @csrf
             @method('PUT')

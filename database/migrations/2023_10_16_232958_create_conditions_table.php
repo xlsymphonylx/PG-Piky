@@ -26,6 +26,8 @@ return new class extends Migration
             $table->integer('stream_speed');
             $table->string('tide');
             $table->string('ice');
+            $table->unsignedBigInteger('work_order_id');
+            $table->foreign('work_order_id')->references('id')->on('work_orders')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -35,6 +37,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('conditions', function (Blueprint $table) {
+            $table->dropForeign(['work_order_id']);
+        });
         Schema::dropIfExists('conditions');
     }
 };

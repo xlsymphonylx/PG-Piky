@@ -18,76 +18,30 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $permisos = [
-            //Roles Table
-            'ver-rol',
-            'crear-rol',
-            'editar-rol',
-            'borrar-rol',
-            //Work Order Table
-            'ver-work',
-            'crear-work',
-            'editar-work',
-            'borrar-work',
-            //Conditions Table
-            'ver-conditions',
-            'crear-conditions',
-            'editar-conditions',
-            'borrar-conditions',
-            //Vessel_Info Table
-            'ver-vesselinfo',
-            'crear-vesselinfo',
-            'editar-vesselinfo',
-            'borrar-vesselinfo',
-            //Time Log Table
-            'ver-timelog',
-            'crear-timelog',
-            'editar-timelog',
-            'borrar-timelog',
-            //AFT Table
-            'ver-AFT',
-            'crear-AFT',
-            'editar-AFT',
-            'borrar-AFT',
-            //FWDTable
-            'ver-FWT',
-            'crear-FWT',
-            'editar-FWT',
-            'borrar-FWT',
-            //MM Table
-            'ver-MM',
-            'crear-MM',
-            'editar-MM',
-            'borrar-MM',
-            //MID Table
-            'ver-MID',
-            'crear-MID',
-            'editar-MID',
-            'borrar-MID',
-            //MM Displacement Table
-            'ver-MMD',
-            'crear-MMD',
-            'editar-MMD',
-            'borrar-MMD',
-            //displacement Table
-            'ver-Displacement',
-            'crear-Displacement',
-            'editar-Displacement',
-            'borrar-Displacement',
-            //deduction_total Table
-            'ver-DeductionTotal',
-            'crear-DeductionTotal',
-            'editar-DeductionTotal',
-            'borrar-DeductionTotal',
-            //Trim Corr Table
-            'ver-TrimCorr',
-            'crear-TrimCorr',
-            'editar-TrimCorr',
-            'borrar-TrimCorr',
-            //Vessel Corr Table
-            'ver-VesselCorr',
-            'crear-VesselCorr',
-            'editar-VesselCorr',
-            'borrar-VesselCorr',
+            'create-work_orders',
+            'create-conditions',
+            'create-users',
+            'create-roles',
+            'create-time_logs',
+            'create-ships',
+            'show-work_orders',
+            'show-conditions',
+            'show-users',
+            'show-roles',
+            'show-time_logs',
+            'show-ships',
+            'edit-work_orders',
+            'edit-conditions',
+            'edit-users',
+            'edit-roles',
+            'edit-time_logs',
+            'edit-ships',
+            'delete-work_orders',
+            'delete-conditions',
+            'delete-users',
+            'delete-roles',
+            'delete-time_logs',
+            'delete-ships',
         ];
         foreach ($permisos as $permiso) {
             Permission::create(['name' => $permiso]);

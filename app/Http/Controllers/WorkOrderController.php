@@ -18,7 +18,26 @@ class WorkOrderController extends Controller
         $workOrder = WorkOrder::findOrFail($id);
         return view('work_orders.show', compact('workOrder'));
     }
+    public function searchWorkOrder(Request $request)
+    {
+        $request->validate([
+            'file_number' => 'required|exists:work_orders,file_number',
+        ]);
 
+        $fileNumber = $request->get('file_number');
+
+        $workOrder = WorkOrder::where('file_number', $fileNumber)->firstOrFail();
+
+        session(['latestWorkOrder' => serialize($workOrder)]);
+
+        return back();
+    }
+    public function stopSearch(Request $request)
+    {
+        // Remove the 'latestWorkOrder' session variable
+        $request->session()->forget('latestWorkOrder');
+        return back();
+    }
     public function create()
     {
         return view('work_orders.create');

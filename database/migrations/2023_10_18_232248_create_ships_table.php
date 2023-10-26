@@ -28,6 +28,8 @@ class CreateShipsTable extends Migration
             $table->date('dated_hull');
             $table->string('registry_port');
             $table->string('flag');
+            $table->unsignedBigInteger('work_order_id');
+            $table->foreign('work_order_id')->references('id')->on('work_orders')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -39,6 +41,9 @@ class CreateShipsTable extends Migration
      */
     public function down()
     {
+        Schema::table('ships', function (Blueprint $table) {
+            $table->dropForeign(['work_order_id']);
+        });
         Schema::dropIfExists('ships');
     }
 }

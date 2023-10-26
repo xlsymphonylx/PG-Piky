@@ -9,7 +9,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        @can('crear-rol')
+        @can('create-roles')
             <div class="table-custom__options">
                 <a href="{{ url('/roles/create') }}">New</a>
             </div>

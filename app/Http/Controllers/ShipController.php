@@ -9,7 +9,10 @@ class ShipController extends Controller
 {
     public function index()
     {
-        $ships = Ship::all();
+        $latestWorkOrder = unserialize(session('latestWorkOrder'));
+        $workOrderId = $latestWorkOrder->id;
+        // Retrieve ships associated with the specific work order
+        $ships = Ship::where('work_order_id', $workOrderId)->get();
         return view('ships.index', compact('ships'));
     }
 
@@ -42,7 +45,15 @@ class ShipController extends Controller
             'flag' => 'required|string|max:255',
         ]);
 
-        Ship::create($request->all());
+        $shipData = $request->all();
+
+        // Retrieve the latest work order from the session
+        $latestWorkOrder = unserialize(session('latestWorkOrder'));
+
+        // Add the work_order_id to the ship data
+        $shipData['work_order_id'] = $latestWorkOrder->id;
+
+        Ship::create($shipData);
 
         return redirect()->route('ships.index')
             ->with('success', 'The ship has been created sucessfully!');

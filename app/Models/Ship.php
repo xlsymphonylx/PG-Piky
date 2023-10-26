@@ -12,6 +12,6 @@ class Ship extends Model
     protected $fillable = [
         'vessel', 'loaded', 'file', 'vessel_previous_name', 'call_letters', 'built_year',
         'built_by', 'hydrostatic_by', 'shipyard_no', 'hull_no', 'dated_hull',
-        'registry_port', 'flag'
+        'registry_port', 'flag','work_order_id'
     ];
 }

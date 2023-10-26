@@ -7,13 +7,10 @@
         <h3 class="form-custom__title">Editing Time Log</h3>
         @if ($errors->any())
             <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                <strong>Please fill all fields!</strong>
+                <strong>Please check the fields!</strong>
                 @foreach ($errors->all() as $error)
-                    <span class="badge badge-danger">{{ $error }}</span>
+                    <span class="badge badge-danger text-danger">{{ $error }}</span>
                 @endforeach
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
         @endif
         <form method="POST" action="{{ route('time_log.update', $timeLog->id) }}">

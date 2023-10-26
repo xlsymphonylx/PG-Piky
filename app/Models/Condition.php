@@ -24,6 +24,6 @@ class Condition extends Model
         'direction_wind',
         'stream_speed',
         'tide',
-        'ice'
+        'ice', 'work_order_id'
     ];
 }

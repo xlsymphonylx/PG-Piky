@@ -69,19 +69,57 @@
         </div>
 
         <div class="navbar-layout">
-            <input type="text" class="order-search" placeholder="Order No.">
+            <form action="{{ route('work_orders.search') }}" method="POST" style="display: inline;">
+                @csrf
+                <input type="text" class="order-search" placeholder="Order No." name="file_number">
+                <input type="submit" class="btn-primary btn" value="Search">
+            </form>
+
             <img src="{{ url('svg/SearchFieldIcon.svg') }}" class="order-search__logo"
                 style="filter: grayscale(100%); !important">
         </div>
         <main class="py-4 content">
-            <div class="search-order__info">
-                <p class="search-order__info-item"></p>
-                <p class="search-order__info-item"></p>
-                <p class="search-order__info-item"></p>
-                <p class="search-order__info-item"></p>
-                <p class="search-order__info-item"></p>
-                <p class="search-order__info-item"></p>
-            </div>
+            @if (session('latestWorkOrder'))
+                @php
+                    $foundWorkOrder = unserialize(session('latestWorkOrder'));
+                @endphp
+                <div class="search-order__info">
+                    <p class="search-order__info-item">{{ $foundWorkOrder->file_number }}</p>
+                    <p class="search-order__info-item">{{ $foundWorkOrder->branch }}</p>
+                    <p class="search-order__info-item">{{ $foundWorkOrder->terminal }}</p>
+                    <p class="search-order__info-item">{{ $foundWorkOrder->product }}</p>
+                    <p class="search-order__info-item">{{ $foundWorkOrder->vessel }}</p>
+                    <p class="search-order__info-item">{{ $foundWorkOrder->file_status }}</p>
+                    <p class="search-order__info-item">
+                        {{ \Carbon\Carbon::parse($foundWorkOrder->eta)->format('Y-m-d') }}
+                    </p>
+                    <p class="search-order__info-item">
+                    <form action="{{ route('work_orders.stopSearch') }}" method="POST" style="display: inline;">
+                        @csrf
+
+                        <input type="submit" class="btn" style="font-weight: bold; color :red" value="X">
+
+                    </form>
+
+                    </p>
+
+                </div>
+            @elseif ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="search-order__info">
+                        <p class="search-order__info-item">{{ $error }}</p>
+                    </div>
+                @endforeach
+            @else
+                <div class="search-order__info">
+                    <p class="search-order__info-item"></p>
+                    <p class="search-order__info-item"></p>
+                    <p class="search-order__info-item"></p>
+                    <p class="search-order__info-item"></p>
+                    <p class="search-order__info-item"></p>
+                    <p class="search-order__info-item"></p>
+                </div>
+            @endif
             @yield('content')
         </main>
     </div>

@@ -9,7 +9,10 @@ class TimeLogController extends Controller
 {
     public function index()
     {
-        $timeLogs = TimeLog::all();
+        $latestWorkOrder = unserialize(session('latestWorkOrder'));
+        $workOrderId = $latestWorkOrder->id;
+        // Retrieve ships associated with the specific work order
+        $timeLogs = TimeLog::where('work_order_id', $workOrderId)->get();
         return view('time_log.index', compact('timeLogs'));
     }
 
@@ -31,7 +34,14 @@ class TimeLogController extends Controller
             'description' => 'required',
         ]);
 
-        TimeLog::create($request->all());
+        $timeLogData = $request->all();
+
+        // Retrieve the latest work order from the session
+        $latestWorkOrder = unserialize(session('latestWorkOrder'));
+
+        // Add the work_order_id to the time log data
+        $timeLogData['work_order_id'] = $latestWorkOrder->id;
+        TimeLog::create($timeLogData);
 
         return redirect()->route('time_log.index')
             ->with('success', 'The time log has been created sucessfully!');

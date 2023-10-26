@@ -10,15 +10,12 @@
             <div class="alert alert-dark alert-dismissible fade show" role="alert">
                 <strong>Please check the fields!</strong>
                 @foreach ($errors->all() as $error)
-                    <span class="badge badge-danger">{{ $error }}</span>
+                    <span class="badge badge-danger text-danger">{{ $error }}</span>
                 @endforeach
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
         @endif
 
-        <form method="POST" action="{{ route('work_orders.store') }}">
+        <form method="POST" action="{{ route('roles.store') }}">
 
             @csrf
             <div class="row">

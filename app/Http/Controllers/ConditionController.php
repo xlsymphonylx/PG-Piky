@@ -9,7 +9,10 @@ class ConditionController extends Controller
 {
     public function index()
     {
-        $conditions = Condition::all();
+        $latestWorkOrder = unserialize(session('latestWorkOrder'));
+        $workOrderId = $latestWorkOrder->id;
+        // Retrieve ships associated with the specific work order
+        $conditions = Condition::where('work_order_id', $workOrderId)->get();
         return view('conditions.index', compact('conditions'));
     }
 
@@ -42,8 +45,14 @@ class ConditionController extends Controller
             'ice' => 'required',
         ]);
 
-        Condition::create($request->all());
+        $conditionData = $request->all();
 
+        // Retrieve the latest work order from the session
+        $latestWorkOrder = unserialize(session('latestWorkOrder'));
+
+        // Add the work_order_id to the condition data
+        $conditionData['work_order_id'] = $latestWorkOrder->id;
+        Condition::create($conditionData);
         return redirect()->route('conditions.index')
             ->with('success', 'The condition has been created sucessfully!');
     }

@@ -9,7 +9,7 @@ class TimeLog extends Model
 {
     use HasFactory;
     public $table = 'time_logs';
-    protected $fillable = ['description', 'entry_time'];
+    protected $fillable = ['description', 'entry_time','work_order_id'];
     protected $casts = [
         'entry_time' => 'datetime',
     ];

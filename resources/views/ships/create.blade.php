@@ -7,13 +7,10 @@
         <h3 class="form-custom__title">New Ship</h3>
         @if ($errors->any())
             <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                <strong>Please fill all fields!</strong>
+                <strong>Please check the fields!</strong>
                 @foreach ($errors->all() as $error)
-                    <span class="badge badge-danger">{{ $error }}</span>
+                    <span class="badge badge-danger text-danger">{{ $error }}</span>
                 @endforeach
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
         @endif
         <form method="POST" action="{{ route('ships.store') }}">
@@ -39,8 +36,8 @@
             <div class="form-custom__section">
                 <div class="form-custom__group">
                     <label class="form-custom__label" for="file">File</label>
-                    <input type="text" class="form-custom__input" id="file" name="file"
-                        placeholder="Enter file" required>
+                    <input type="text" class="form-custom__input" id="file" name="file" placeholder="Enter file"
+                        required>
                 </div>
 
                 <div class="form-custom__group">

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->datetime('entry_time');
             $table->string('description');
+            $table->unsignedBigInteger('work_order_id');
+            $table->foreign('work_order_id')->references('id')->on('work_orders')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +26,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('time_logs', function (Blueprint $table) {
+            $table->dropForeign(['work_order_id']);
+        });
         Schema::dropIfExists('time_logs');
     }
 };

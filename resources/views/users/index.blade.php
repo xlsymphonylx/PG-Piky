@@ -17,6 +17,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Role</th>
                     <th>Verified</th>
                     <th>Actions</th>
                 </tr>
@@ -26,6 +27,7 @@
                     <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>{{ $user->getFirstRoleName() }}</td>
                         <td>{{ $user->email_verified_at ? 'Yes' : 'No' }}</td>
                         <td class="options">
                             <div class="options-dropdown">
