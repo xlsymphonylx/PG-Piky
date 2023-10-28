@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\DraftController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\ShipController;
 use App\Http\Controllers\TimeLogController;
@@ -63,7 +64,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('roles', [RolController::class, 'store'])->middleware('permission:create-roles')->name('roles.store');
     Route::get('roles/{id}', [RolController::class, 'show'])->middleware('permission:show-roles')->name('roles.show');
     Route::get('roles/{id}/edit', [RolController::class, 'edit'])->middleware('permission:edit-roles')->name('roles.edit');
-    Route::put('roles/{id}', [RolController::class, 'update'])->middleware('permission:edit-roles')->name('roles.update');
+    Route::patch('roles/{id}', [RolController::class, 'update'])->middleware('permission:edit-roles')->name('roles.update');
     Route::delete('roles/{id}', [RolController::class, 'destroy'])->middleware('permission:delete-roles')->name('roles.destroy');
 
     // TimeLog Controller
@@ -83,4 +84,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('ships/{id}/edit', [ShipController::class, 'edit'])->middleware(['permission:edit-ships', 'checkLatestWorkOrder'])->name('ships.edit');
     Route::put('ships/{id}', [ShipController::class, 'update'])->middleware(['permission:edit-ships', 'checkLatestWorkOrder'])->name('ships.update');
     Route::delete('ships/{id}', [ShipController::class, 'destroy'])->middleware(['permission:delete-ships', 'checkLatestWorkOrder'])->name('ships.destroy');
+
+    Route::get('drafts/continue', [DraftController::class, 'continue'])->middleware(['permission:continue-draft','checkLatestWorkOrder', 'checkDraftState'])->name('drafts.continue');
+    Route::get('drafts', [DraftController::class, 'index'])->middleware(['permission:show-draft', 'checkLatestWorkOrder','checkDraftState'])->name('drafts.index');
+    Route::get('drafts/recreate', [DraftController::class, 'recreate'])->middleware(['permission:recreate-draft','checkLatestWorkOrder', 'checkDraftState'])->name('drafts.recreate');
+    Route::post('drafts/save', [DraftController::class, 'save'])->middleware(['permission:save-draft',  'checkLatestWorkOrder','checkDraftState'])->name('drafts.save');
+    Route::post('drafts/finalize', [DraftController::class, 'finalize'])->middleware(['permission:finalize-draft','checkLatestWorkOrder' ,'checkDraftState'])->name('drafts.finalize');
+
+    Route::get('final_report', [DraftController::class, 'finalReport'])->middleware(['permission:final-report', 'checkLatestWorkOrder', 'checkReportState'])->name('final_report.form');
 });

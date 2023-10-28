@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Draft;
 use App\Models\WorkOrder;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,14 @@ class WorkOrderController extends Controller
         $fileNumber = $request->get('file_number');
 
         $workOrder = WorkOrder::where('file_number', $fileNumber)->firstOrFail();
+
+        // Check if there is an associated draft
+        $existingDraft = Draft::where('work_order_id', $workOrder->id)->first();
+
+        if (!$existingDraft) {
+            // If no associated draft, create a new one
+            Draft::create(['work_order_id' => $workOrder->id]);
+        }
 
         session(['latestWorkOrder' => serialize($workOrder)]);
 

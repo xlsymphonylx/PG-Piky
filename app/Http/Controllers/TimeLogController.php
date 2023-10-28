@@ -11,7 +11,7 @@ class TimeLogController extends Controller
     {
         $latestWorkOrder = unserialize(session('latestWorkOrder'));
         $workOrderId = $latestWorkOrder->id;
-        // Retrieve ships associated with the specific work order
+        // Retrieve time logs associated with the specific work order
         $timeLogs = TimeLog::where('work_order_id', $workOrderId)->get();
         return view('time_log.index', compact('timeLogs'));
     }
@@ -64,7 +64,7 @@ class TimeLogController extends Controller
         $timeLog->update($request->all());
 
         return redirect()->route('time_log.index')
-            ->with('success', 'The ship has been updated sucessfully!');
+            ->with('success', 'The time log has been updated sucessfully!');
     }
 
     public function destroy($id)
@@ -73,6 +73,6 @@ class TimeLogController extends Controller
         $timeLog->delete();
 
         return redirect()->route('time_log.index')
-            ->with('success', 'The ship has been deleted sucessfully!');
+            ->with('success', 'The time log has been deleted sucessfully!');
     }
 }

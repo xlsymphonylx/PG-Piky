@@ -108,7 +108,7 @@
             </div>
             <div style="margin-left: 1rem">
                 <button type="submit" class="form-custom__btn form-custom__btn-success">Save</button>
-                <a href="{{ route('ships.index') }}" class="form-custom__btn form-custom__btn-danger">Cancelar</a>
+                <a href="{{ route('ships.index') }}" class="form-custom__btn form-custom__btn-danger">Cancel</a>
             </div>
         </form>
     </div>

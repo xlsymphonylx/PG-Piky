@@ -42,6 +42,13 @@ class PermissionSeeder extends Seeder
             'delete-roles',
             'delete-time_logs',
             'delete-ships',
+            'continue-draft',
+            'show-draft',
+            'recreate-draft',
+            'save-draft',
+            'finalize-draft',
+            'final-report',
+
         ];
         foreach ($permisos as $permiso) {
             Permission::create(['name' => $permiso]);

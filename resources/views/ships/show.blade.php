@@ -3,20 +3,20 @@
 @section('content')
     <link rel="stylesheet" href="{{ url('css/form.css') }}">
     <div class="form-custom__container">
-        <h3 class="form-custom__title">Mostrando Estampa de Tiempo</h3>
+        <h3 class="form-custom__title">Showing Vessel</h3>
 
 
         <!-- Section 1 -->
         <div class="form-custom__section">
             <div class="form-custom__group">
                 <label class="form-custom__label" for="vessel">Vessel</label>
-                <input type="datetime-local" class="form-custom__input" id="vessel" name="vessel"
+                <input type="text" class="form-custom__input" id="vessel" name="vessel"
                     value="{{ $ship->vessel }}" readonly>
             </div>
 
             <div class="form-custom__group">
                 <label class="form-custom__label" for="loaded">Load State</label>
-                <select type="text" class="form-custom__input" id="loaded" name="loaded" value="{{ $ship->loaded }}"
+                <select type="text" class="form-custom__input" style="padding: 0" id="loaded" name="loaded" value="{{ $ship->loaded }}"
                     readonly>
                     <option value="{{ true }}">Loaded</option>
                     <option value="{{ false }}">Not Loaded</option>
@@ -28,7 +28,7 @@
         <div class="form-custom__section">
             <div class="form-custom__group">
                 <label class="form-custom__label" for="file">File</label>
-                <input type="datetime-local" class="form-custom__input" id="file" name="file"
+                <input type="text" class="form-custom__input" id="file" name="file"
                     value="{{ $ship->file }}" readonly>
             </div>
 
@@ -108,8 +108,8 @@
             </div>
         </div>
         <div style="margin-left: 1rem">
-            <a href="{{ route('ships.edit', $ship->id) }}" class="form-custom__btn form-custom__btn-success">Editar</a>
-            <a href="{{ route('ships.index') }}" class="form-custom__btn form-custom__btn-danger">Cancelar</a>
+            <a href="{{ route('ships.edit', $ship->id) }}" class="form-custom__btn form-custom__btn-success">Edit</a>
+            <a href="{{ route('ships.index') }}" class="form-custom__btn form-custom__btn-danger">Cancel</a>
         </div>
     </div>
 @endsection

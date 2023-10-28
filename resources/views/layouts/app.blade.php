@@ -36,9 +36,8 @@
             <a href="home" class="sidebar-layout__link">
                 <img src="{{ url('svg/DefaultHome.svg') }}" class="sidebar-layout__logo">
                 Home</a>
-            <a href="#" class="sidebar-layout__link"> <img src="{{ url('svg/DefaultDraft.svg') }}"
-                    class="sidebar-layout__logo">New
-                Draft</a>
+            <a href="/drafts" class="sidebar-layout__link"> <img src="{{ url('svg/DefaultDraft.svg') }}"
+                    class="sidebar-layout__logo">Draft</a>
             <a href="/roles" class="sidebar-layout__link"> <img src="{{ url('svg/DefaultRoles.svg') }}"
                     class="sidebar-layout__logo">Roles</a>
             <a href="/users" class="sidebar-layout__link"> <svg width="24" height="25" viewBox="0 0 24 25"
@@ -57,7 +56,7 @@
                     class="sidebar-layout__logo">Conditions</a>
             <a href="/time_log" class="sidebar-layout__link"> <img src="{{ url('svg/DefaultTime.svg') }}"
                     class="sidebar-layout__logo">Time Logs</a>
-            <a href="#" class="sidebar-layout__link"> <img src="{{ url('svg/DefaultReports.svg') }}"
+            <a href="/final_report" class="sidebar-layout__link"> <img src="{{ url('svg/DefaultReports.svg') }}"
                     class="sidebar-layout__logo">Work Report</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf

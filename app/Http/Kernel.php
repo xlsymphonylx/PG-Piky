@@ -67,5 +67,8 @@ class Kernel extends HttpKernel
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'checkLatestWorkOrder' => \App\Http\Middleware\CheckLatestWorkOrder::class,
+        'checkDraftState' => \App\Http\Middleware\DraftState::class,
+        'checkReportState' => \App\Http\Middleware\ReportState::class,
+
     ];
 }
