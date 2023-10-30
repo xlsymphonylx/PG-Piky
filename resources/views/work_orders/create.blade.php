@@ -18,7 +18,7 @@
             <div class="form-custom__section">
                 <div class="form-custom__group">
                     <label class="form-custom__label" for="file_number">File Number</label>
-                    <input type="text" class="form-custom__input" id="file_number" name="file_number"
+                    <input type="number" class="form-custom__input" id="file_number" name="file_number"
                         placeholder="Enter File Number" required>
                 </div>
             </div>
