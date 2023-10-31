@@ -17,8 +17,9 @@ class UserController extends Controller
 
     public function show($id)
     {
+        $roles = Role::all();
         $user = User::findOrFail($id);
-        return view('users.show', compact('user'));
+        return view('users.show', compact('user', 'roles'));
     }
 
     public function create()
@@ -29,7 +30,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
