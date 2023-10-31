@@ -537,14 +537,14 @@
 
         <div class="form-custom__section">
             <div class="form-custom__group">
-                <label class="form-custom__label" for="loaded_cargo">Loaded Cargo </label>
-                <input readonly type="text" class="form-custom__input"
+                <label class="form-custom__label text-danger" for="loaded_cargo">Loaded Cargo </label>
+                <input readonly type="text" class="form-custom__input text-danger"
                     value="{{ $draft->loaded_cargo !== null ? number_format($draft->loaded_cargo, 4) : '' }}"
                     id="loaded_cargo" name="loaded_cargo" placeholder="Enter Loaded Cargo ">
             </div>
             <div class="form-custom__group">
-                <label class="form-custom__label" for="discharged_cargo">Discharged Cargo</label>
-                <input readonly type="text" class="form-custom__input"
+                <label class="form-custom__label text-danger" for="discharged_cargo">Discharged Cargo</label>
+                <input readonly type="text" class="form-custom__input text-danger"
                     value="{{ $draft->discharged_cargo !== null ? number_format($draft->discharged_cargo, 4) : '' }}"
                     id="discharged_cargo" name="discharged_cargo" placeholder="Enter Discharged Cargo">
             </div>
