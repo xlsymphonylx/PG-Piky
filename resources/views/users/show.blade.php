@@ -21,7 +21,7 @@
         <div class="form-custom_section">
             <div class="form-custom__group">
                 <label class="form-custom__label" for="role">Role</label>
-                <select class="form-custom__input" id="role" name="role" readonly>
+                <select class="form-custom__input" id="role" name="role" style="padding: 0" readonly>
                     @foreach ($roles as $role)
                         <option value="{{ $role->name }}"
                             {{ $role->name == $user->getFirstRoleName() ? 'selected' : 'disabled' }}>{{ $role->name }}
