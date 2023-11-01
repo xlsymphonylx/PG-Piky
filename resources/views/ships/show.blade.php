@@ -88,7 +88,7 @@
         <div class="form-custom__section">
             <div class="form-custom__group">
                 <label class="form-custom__label" for="dated_hull">Dated Hull</label>
-                <input type="datetime-local" class="form-custom__input" id="dated_hull" name="dated_hull"
+                <input type="text" class="form-custom__input" id="dated_hull" name="dated_hull"
                     value="{{ $ship->dated_hull }}" readonly>
             </div>
 

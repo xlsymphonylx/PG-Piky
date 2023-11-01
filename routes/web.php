@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     // Word orders Controller
     Route::get('work_orders', [WorkOrderController::class, 'index'])->middleware('permission:show-work_orders')->name('work_orders.index');
     Route::get('work_orders/create', [WorkOrderController::class, 'create'])->middleware('permission:create-work_orders')->name('work_orders.create');
-    Route::post('work_orders', [WorkOrderController::class, 'store'])->middleware('permission:create-work_orders')->name('work_orders.store');;
+    Route::post('work_orders', [WorkOrderController::class, 'store'])->middleware('permission:create-work_orders')->name('work_orders.store');
     Route::get('work_orders/{id}', [WorkOrderController::class, 'show'])->middleware('permission:show-work_orders')->name('work_orders.show');
     Route::post('work_orders/search', [WorkOrderController::class, 'searchWorkOrder'])->middleware('permission:show-work_orders')->name('work_orders.search');
     Route::post('work_orders/stopSearch', [WorkOrderController::class, 'stopSearch'])->middleware('permission:show-work_orders')->name('work_orders.stopSearch');
@@ -48,7 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('conditions/{id}/edit', [ConditionController::class, 'edit'])->middleware(['permission:edit-conditions', 'checkLatestWorkOrder'])->name('conditions.edit');
     Route::put('conditions/{id}', [ConditionController::class, 'update'])->middleware(['permission:edit-conditions', 'checkLatestWorkOrder'])->name('conditions.update');
     Route::delete('conditions/{id}', [ConditionController::class, 'destroy'])->middleware(['permission:delete-conditions', 'checkLatestWorkOrder'])->name('conditions.destroy');
-
     // Users Controller
     Route::get('users', [UserController::class, 'index'])->middleware('permission:show-users')->name('users.index');
     Route::get('users/create', [UserController::class, 'create'])->middleware('permission:create-users')->name('users.create');
@@ -57,7 +56,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/{id}/edit', [UserController::class, 'edit'])->middleware('permission:edit-users')->name('users.edit');
     Route::put('users/{id}', [UserController::class, 'update'])->middleware('permission:edit-users')->name('users.update');
     Route::delete('users/{id}', [UserController::class, 'destroy'])->middleware('permission:delete-users')->name('users.destroy');
-
     // Roles Controller
     Route::get('roles', [RolController::class, 'index'])->middleware('permission:show-roles')->name('roles.index');
     Route::get('roles/create', [RolController::class, 'create'])->middleware('permission:create-roles')->name('roles.create');
